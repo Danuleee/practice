@@ -1,0 +1,21 @@
+# FYI
+don't add <>
+
+# Install
+
+cd <path_to_your_project>
+
+conda create --name <your_new_environment_name> python=3.9
+
+conda activate <your_new_environment_name>
+
+pip install-r requirments.txt
+
+python main.py
+
+
+# Delete
+
+conda deactivate
+
+conda remove --name your_new_environment_name --all
