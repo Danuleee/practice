@@ -9,7 +9,7 @@ conda create --name <your_new_environment_name> python=3.9
 
 conda activate <your_new_environment_name>
 
-pip install -r requirments.txt
+pip install -r requirements.txt
 
 python main.py
 
