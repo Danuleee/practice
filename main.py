@@ -23,40 +23,17 @@ def filter_low_confidence(result, min_confidence):
     return result
  
 # 'from_images', 'from_pdf', 'from_url'
-# doc = DocumentFile.from_url("https://nationalseniors.com.au/generated/1280w-3-2/auspassport-png.png?1677548746")
-# doc = DocumentFile.from_images("auspassport-png.png")
-# # Analyze
-# result = model(doc, language="en")
-
-# min_confidence = 0.9
-
-# # Filter the results
-# filtered_result = filter_low_confidence(result, min_confidence)
-
-# # Show the filtered results
-# filtered_result.show()
-
-
-language = "en"  # Change this to the appropriate language code
-model = ocr_predictor(pretrained=True, det_arch='db_resnet50', reco_arch='crnn_vgg16_bn', assume_straight_pages=True)
-
-# Load the document
 doc = DocumentFile.from_images("auspassport-png.png")
+# Analyze
+result = model(doc)
 
-# Analyze with specified language
-result = model(doc, language=language)
-
-# Set the minimum confidence score (e.g., 0.5 for 50% confidence)
-min_confidence = 0.5
+min_confidence = 0.9
 
 # Filter the results
 filtered_result = filter_low_confidence(result, min_confidence)
 
 # Show the filtered results
 filtered_result.show()
-
-# result.show()
-# print(result)
 
 # import matplotlib.pyplot as plt
 
