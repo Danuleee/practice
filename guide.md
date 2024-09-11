@@ -2,6 +2,8 @@
 don't add <>
 make sure to add anaconda to path when installing it
 
+
+
 # Install
 
 cd <path_to_your_project>
