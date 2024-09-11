@@ -1,5 +1,6 @@
 # FYI
 don't add <>
+
 make sure to add anaconda to path when installing it
 
 
