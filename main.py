@@ -1,7 +1,12 @@
 from doctr.io import DocumentFile
 from doctr.models import ocr_predictor
+import matplotlib.pyplot as plt
 
 model = ocr_predictor(pretrained=True)
+
+def visualize_ocr(result):
+    synthetic_pages = result.synthesize()
+    plt.imshow(synthetic_pages[0]); plt.axis('off'); plt.show()
 
 def filter_low_confidence(result, min_confidence):
     filtered_pages = []
@@ -23,6 +28,7 @@ def filter_low_confidence(result, min_confidence):
     return result
  
 # 'from_images', 'from_pdf', 'from_url'
+# doc = DocumentFile.from_url("https://nationalseniors.com.au/generated/1280w-3-2/auspassport-png.png?1677548746")
 doc = DocumentFile.from_images("auspassport-png.png")
 # Analyze
 result = model(doc)
@@ -35,7 +41,5 @@ filtered_result = filter_low_confidence(result, min_confidence)
 # Show the filtered results
 filtered_result.show()
 
-# import matplotlib.pyplot as plt
 
-# synthetic_pages = result.synthesize()
-# plt.imshow(synthetic_pages[0]); plt.axis('off'); plt.show()
+# visualize_ocr(filtered_result)
