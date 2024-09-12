@@ -4,3 +4,4 @@ keras==2.8.0
 tf2onnx
 matplotlib
 mplcursors
+transformers
